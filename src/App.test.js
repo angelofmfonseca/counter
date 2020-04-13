@@ -1,10 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import Enzyme, { shallow } from "enzyme";
+import EnzymeAdapter from "enzyme-adapter-react-16";
 
-import App from './App';
+import App from "./App";
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
+Enzyme.configure({ adapter: new EnzymeAdapter() });
+
+it("renders without crashing", () => {});
+
+it("renders increment button", () => {});
+
+it("renders decrement button", () => {});
+
+it("renders clear button", () => {});
+
+it("renders counter display", () => {});
+
+it("conter starts at 0", () => {});
+
+it("clicking + button increments the counter display", () => {});
+
+it("clicking - button decrements the counter display", () => {});
+
+it("clicking clear button sets the counter display back to 0", () => {});

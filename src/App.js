@@ -28,7 +28,7 @@ class App extends Component {
   render() {
     return (
       <section className="counter">
-          Counter: { this.state.counter }
+          The count is { this.state.counter }
           <div className="buttonsWrapper">
             <button className="incrementButton" onClick={ this.increment }>+</button>
             <button className="decrementButton" onClick={ this.decrement }>-</button>

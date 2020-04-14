@@ -36,7 +36,11 @@ it("renders counter display", () => {
   expect(counterDisplay.length).toBe(1);
 });
 
-it("counter starts at 0", () => {});
+it("counter starts at 0", () => {
+  const wrapper = shallow(<App />);
+  const initialCounterState = wrapper.state("counter");
+  expect(initialCounterState).toBe(0);
+});
 
 it("clicking + button increments the counter display", () => {});
 

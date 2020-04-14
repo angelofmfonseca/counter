@@ -28,15 +28,29 @@ class App extends Component {
   render() {
     return (
       <section className="counter" data-test="component-app">
-        The count is {this.state.counter}
+        <div data-test="counter-display">
+          The count is <span>{this.state.counter}</span>
+        </div>
         <div className="buttonsWrapper">
-          <button className="incrementButton" onClick={this.increment}>
+          <button
+            className="incrementButton"
+            onClick={this.increment}
+            data-test="increment-button"
+          >
             +
           </button>
-          <button className="decrementButton" onClick={this.decrement}>
+          <button
+            className="decrementButton"
+            onClick={this.decrement}
+            data-test="decrement-button"
+          >
             -
           </button>
-          <button className="clearButton" onClick={this.clear}>
+          <button
+            className="clearButton"
+            onClick={this.clear}
+            data-test="clear-button"
+          >
             clear
           </button>
         </div>

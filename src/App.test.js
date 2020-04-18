@@ -58,6 +58,20 @@ it("clicking + button increments the counter display", () => {
   expect(counterDisplay.text()).toContain(counterState + 1);
 });
 
-it("clicking - button decrements the counter display", () => {});
+it("clicking - button decrements the counter display", () => {
+  const wrapper = shallow(<App />);
+
+  const counterState = wrapper.state("counter");
+  if (counterState) {
+    wrapper.setState(counterState);
+    return wrapper;
+  }
+
+  const decrementButton = wrapper.find("[data-test='decrement-button']");
+  decrementButton.simulate("click");
+
+  const counterDisplay = wrapper.find("[data-test='counter-display']");
+  expect(counterDisplay.text()).toContain(counterState - 1);
+});
 
 it("clicking clear button sets the counter display back to 0", () => {});

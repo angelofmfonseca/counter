@@ -74,4 +74,18 @@ it("clicking - button decrements the counter display", () => {
   expect(counterDisplay.text()).toContain(counterState - 1);
 });
 
-it("clicking clear button sets the counter display back to 0", () => {});
+it("clicking clear button sets the counter display back to 0", () => {
+  const wrapper = shallow(<App />);
+
+  const counterState = wrapper.state("counter");
+  if (counterState) {
+    wrapper.setState(counterState);
+    return wrapper;
+  }
+
+  const clearButton = wrapper.find("[data-test='clear-button']");
+  clearButton.simulate("click");
+
+  const counterDisplay = wrapper.find("[data-test='counter-display']");
+  expect(counterDisplay.text()).toContain(0);
+});

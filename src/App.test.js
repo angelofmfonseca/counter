@@ -42,7 +42,21 @@ it("counter starts at 0", () => {
   expect(initialCounterState).toBe(0);
 });
 
-it("clicking + button increments the counter display", () => {});
+it("clicking + button increments the counter display", () => {
+  const wrapper = shallow(<App />);
+
+  const counterState = wrapper.state("counter");
+  if (counterState) {
+    wrapper.setState(counterState);
+    return wrapper;
+  }
+
+  const incrementButton = wrapper.find("[data-test='increment-button']");
+  incrementButton.simulate("click");
+
+  const counterDisplay = wrapper.find("[data-test='counter-display']");
+  expect(counterDisplay.text()).toContain(counterState + 1);
+});
 
 it("clicking - button decrements the counter display", () => {});
 
